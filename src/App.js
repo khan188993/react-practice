@@ -3,6 +3,7 @@ import UseStateConditional from './components/UseStateConditional';
 import UseStateLearn from './components/UseStateLearn';
 import ToggleState from './components/ToggleState';
 import UseReducerToggle from './components/UseReducer/UseReducerToggle';
+import UseRedToggle from './components/UseReducer/UseRedToggle';
 const App = () => {
   return (
     <>
@@ -10,7 +11,8 @@ const App = () => {
       {/* <UseStateLearn/> */}
       {/* <UseStateConditional/> */}
       {/* <ToggleState/> */}
-      <UseReducerToggle/>
+      {/* <UseReducerToggle/> */}
+      <UseRedToggle/>
     </>
   )
 }
