@@ -1,15 +1,25 @@
-import React from 'react';
+//! browser route initial setup,
+<BrowserRouter>
+    <App />
+</BrowserRouter>;
 
-//App.css priority first 
-// import './Index.css'
-import './App.css'
-import ClassBased from './ClassBased.module.css'
-import { Link, NavLink, Route,Routes } from 'react-router-dom';
+//!app.js route setup,
+<Routes>
+<Route path="/" element="Hello Router Home"></Route>
+<Route path="about" element={<h1>Hello Router About</h1>}></Route>
+<Route path="/blog" element="Hello Router Blog"></Route>
+{/* this will run component */}
+<Route path="/basic-component" element={<BasicComponent/>}></Route>
+<Route path="/css-component" element={<CssAddingComponent/>}></Route>
+</Routes>
 
-const App = () => {
 
-  //Active Class Style sending
-  const activeCheck = ()=>{
+ 
+
+//!Navigation setup 
+
+//Active Class Style sending
+const activeCheck = ()=>{
     return ({isActive})=>{return isActive?'isActive':'notActive'}
   }
 
@@ -17,49 +27,22 @@ const App = () => {
     return ({isActive})=>{return isActive? ({color:'orange'}):({color:'green'})};
   }
 
-  return (
-    <>
-      <h1>React Router V6 Practice code Running.</h1><hr />
-      {/* Navigation Adding */}
-      <ul>
-        {/* A Tag Will Refresh the page */}
-        <li><a href="about">A - About</a></li>
-        <li><NavLink className={activeCheck()} to='/'>Home</NavLink></li>
+<ul>
+{/* A Tag Will Refresh the page */}
+<li><a href="about">A - About</a></li>
 
-        {/* This will not Refresh the page */}
-        <li><NavLink style={activeStyleBased()} to="/">Home</NavLink></li>
-        <li><NavLink className={({isActive})=>{return isActive?'isActive':'notActive'}}  to="/about">About</NavLink></li>
-        <li><NavLink style={({isActive})=>{return isActive? ({color:'orange'}):({color:'green'})}} to="/about">About</NavLink></li>
-        {/* is Active Function based */}
-        <li><NavLink className={activeCheck()} to="/blog">Blog</NavLink></li>
-        <li><NavLink className={activeCheck()} to="/basic-component">Basic Component</NavLink></li>
-        {/* link custom style not work only class work */}
-        <li><NavLink className={activeCheck()} to="/css-component">CSS Component</NavLink></li>
-      </ul>
-      {/* React Router Basic Systems added */}
-      <Routes>
-          <Route path="/" element="Hello Router Home"></Route>
-          <Route path="about" element={<h1>Hello Router About</h1>}></Route>
-          <Route path="/blog" element="Hello Router Blog"></Route>
-          {/* this will run component */}
-          <Route path="/basic-component" element={<BasicComponent/>}></Route>
-          <Route path="/css-component" element={<CssAddingComponent/>}></Route>
-      </Routes>
+{/* This will not Refresh the page */}
+<li><NavLink style={activeStyleBased()} to="/">Home</NavLink></li>
+<li><NavLink className={({isActive})=>{return isActive?'isActive':'notActive'}}  to="/about">About</NavLink></li>
+<li><NavLink style={({isActive})=>{return isActive? ({color:'orange'}):({color:'green'})}} to="/about">About</NavLink></li>
+{/* is Active Function based */}
+<li><NavLink className={activeCheck()} to="/blog">Blog</NavLink></li>
+<li><Link to="/basic-component">Basic Component</Link></li>
+<li><Link to="/css-component">CSS Component</Link></li>
+</ul>
 
-      {/* Css Adding Style  */}
-      
 
-    </>
-  )
-}
-
-//Extra Basic Component For Routing 
-const BasicComponent = ()=>{
-  return (
-    <h1>Basic Component</h1>
-  )
-}
-
+//!All type CSS style component
 
 const CssAddingComponent = ()=>{
     // all style for a tag 
@@ -101,10 +84,10 @@ const CssAddingComponent = ()=>{
       {/* 
       1)class single,class module,style object,style object with dynamic,
       2)join string and dynamic variable,join in background img,
+      3)age console.log e show krbo,
       */}
-
+      
     </>
   )
 }
 
-export default App
