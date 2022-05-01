@@ -10,6 +10,9 @@ import SearchParam from './pages/SearchParam/SearchParam';
 import Dashboard from './pages/Dashboard/Dashboard';
 import Login from './pages/Login/Login';
 import Logout from './pages/Logout/Logout';
+import PostLayout from './pages/PostLayout';
+import PostDetails from './pages/PostDetails';
+import PostPage from './pages/PostPage';
 
 const App = () => {
 
@@ -75,6 +78,14 @@ const App = () => {
           <Route path='/dashboard' element={true ? <Dashboard/> : <Navigate to="/login" replace state={'please log in first'}/>}></Route>
           <Route path="/login" element={<Login/>}></Route>
           <Route path="/logout" element={<Logout/>}></Route>
+
+
+          {/* Layout Style using by post  */}
+          <Route path='/post' element={<PostLayout/>}>
+            <Route path=':category' element={<PostDetails/>}></Route>
+            <Route index element={<PostPage/>}></Route>
+          </Route>
+
       </Routes>
 
       {/* Css Adding Style  */}

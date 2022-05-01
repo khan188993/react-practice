@@ -190,3 +190,35 @@ const Logout = () => {
         </div>
     )
 }
+
+//! Post layout route using 
+<Route path='/post' element={<PostLayout/>}>
+            <Route path=':category' element={<PostDetails/>}></Route>
+            <Route index element={<PostPage/>}></Route>
+</Route>
+
+const PostLayout = () => {
+    return (
+        <div>
+            <h1>this is post layout</h1>
+            <Outlet/>
+        </div>
+    )
+}
+
+const PostPage = () => {
+    return (
+        <div>
+            <h1>Post Page</h1>
+        </div>
+    )
+}
+
+const PostDetails = () => {
+    return (
+        <div>
+            <h1>Post Details</h1>
+        </div>
+    )
+}
+
