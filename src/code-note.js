@@ -152,3 +152,41 @@ import { Navigator } from 'react-router-dom';
 <Route path='/dashboard' element={true ? <Dashboard/> : <Navigate to="/login" replace state={'please log in first'}/>}></Route>
 //login.js 
 console.log(useLocation().state);
+
+
+//! log out navigate use with state 
+// {pathname: '/logout', search: '', hash: '', state: 'logout successful', key: 'kqadaxke'}
+//dashboard theke click krle log out component e nibe state soho,
+const Dashboard = () => {
+    const navigate = useNavigate();
+    const logout = ()=>{
+        console.log('log out');
+        navigate('/logout',{state:'logout successful'});
+        
+    }
+    return (
+        <>
+            <h1>Dashboard</h1>
+
+            {/* this button will navigate to logout page, */}
+            <button onClick={logout}>LogOut</button>
+            {/* / diye kaj krte hobe and function  er bitor lekhte hobe) {
+                
+            } */}
+            <button onClick={()=>navigate('/login')}>LogOut 2nd</button>
+            <button onClick={()=>navigate(-2)}>Back to Navigate</button>
+        </>
+    );
+};
+
+//logout component 
+const Logout = () => {
+    //use location sob khetre use krte parbo,
+    console.log(useLocation());
+    return (
+        <div>
+            <h1>Log Out</h1>
+            <span>{useLocation().state}</span>
+        </div>
+    )
+}

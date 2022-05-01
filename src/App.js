@@ -72,7 +72,7 @@ const App = () => {
           <Route path="search" element={<SearchParam/>}></Route>
 
           {/* Private Route Tricks with login,dashboard and logout, */}
-          <Route path='/dashboard' element={false ? <Dashboard/> : <Navigate to="/login" replace state={'please log in first'}/>}></Route>
+          <Route path='/dashboard' element={true ? <Dashboard/> : <Navigate to="/login" replace state={'please log in first'}/>}></Route>
           <Route path="/login" element={<Login/>}></Route>
           <Route path="/logout" element={<Logout/>}></Route>
       </Routes>
