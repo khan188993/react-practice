@@ -2,9 +2,14 @@ import React,{useState} from "react";
 
 const UseStateLearn = () => {
     const [number,setNumber] = useState(0);
+
+    //Object type state management;
     const [name,setName] =useState("");
     const [email,setEmail] =useState("");
     const [user,setUser] = useState({});
+
+    //Array Type state Management;
+    const [students,setStudents] = useState([{name:'Ashik Talukdar',phone:'01235435'},{name:'pantu',phone:'4533425'}]);
 
     const changeNumber = ()=>{
         // setNumber(number+1);
@@ -18,6 +23,21 @@ const UseStateLearn = () => {
             setUser({name:name,email:email});
         }else{
             alert('please set userInput')
+        }
+        
+    }
+
+    const handleStudent = (e)=>{
+        e.preventDefault();
+        let name = e.target.name.value;
+        let phone = e.target.phone.value;
+        console.log('Name',e.target.name.value,'phone',e.target.name.value);
+        //array type setUp newly
+        if(name && phone){
+            let newStudent = [...students,{name:name,phone:phone}];
+            //newStudent set koray notun kore data add hoye jabe,
+            setStudents(newStudent)
+            console.log(newStudent);
         }
         
     }
@@ -48,6 +68,23 @@ const UseStateLearn = () => {
                 Name : <input type="text" onBlur={(e)=>setName(e.target.value)}/>
                 Email : <input type="email" onBlur={(e)=>setEmail(e.target.value)} />
                 <input type="submit" value="Submit" />
+            </form>
+
+            <hr />
+
+            {/* Array type State management  */}
+            {
+                students.length > 0 && students.map((student,id)=>{
+                    return (
+                        <h1 key={id}>Name : {student.name} || Phone : {student.phone}</h1>
+                    )
+                })
+            }
+            
+            <form action="" onSubmit={handleStudent}>
+                Name : <input type="text" name="name" />
+                Phone : <input type="text" name="phone" />
+                <input type="submit" value="Handle Student" />
             </form>
         </div>
     );
