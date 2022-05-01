@@ -21,16 +21,18 @@ const UseEffectFetch = () => {
             <h1>UseEffect fetch Data </h1><hr></hr>
             <div className="data-container">
                 {
-                    users.length > 0 && users.map((user)=>{
-                        console.log(user);
-                        return (
-                            <div className="single-data" key={user.id}>
-                                <h1>Name : {user.name}</h1>
-                                <h3>Phone : {user.phone}</h3>
-                                <h5>Address:{user.address.street}</h5>
-                            </div>
-                        )
-                    })
+                    users.length > 0 ?(
+                        users.map((user)=>{
+                            console.log(user);
+                            return (
+                                <div className="single-data" key={user.id}>
+                                    <h1>Name : {user.name}</h1>
+                                    <h3>Phone : {user.phone}</h3>
+                                    <h5>Address:{user.address.street}</h5>
+                                </div>
+                            )
+                        })
+                    ): (<h1>Loading</h1>)
                 }
             </div>
         </div>
