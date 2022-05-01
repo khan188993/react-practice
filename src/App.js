@@ -7,6 +7,7 @@ import UseRedToggle from './components/UseReducer/UseRedToggle';
 import UseEffectTuts from './components/UseEffectTuts/UseEffectTuts';
 import UseEffectFetch from './components/UseEffectTuts/UseEffectFetch';
 import UseRefTuts from './components/UseRefTuts/UseRefTuts';
+import ContextApi from './components/ContextApi/ContextApi';
 const App = () => {
   return (
     <>
@@ -18,7 +19,8 @@ const App = () => {
       {/* <UseRedToggle/> */}
       {/* <UseEffectTuts/> */}
       {/* <UseEffectFetch/> */}
-      <UseRefTuts/>
+      {/* <UseRefTuts/> */}
+      <ContextApi/>
     </>
   )
 }
