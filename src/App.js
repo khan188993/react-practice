@@ -5,6 +5,7 @@ import ToggleState from './components/ToggleState';
 import UseReducerToggle from './components/UseReducer/UseReducerToggle';
 import UseRedToggle from './components/UseReducer/UseRedToggle';
 import UseEffectTuts from './components/UseEffectTuts/UseEffectTuts';
+import UseEffectFetch from './components/UseEffectTuts/UseEffectFetch';
 const App = () => {
   return (
     <>
@@ -14,7 +15,8 @@ const App = () => {
       {/* <ToggleState/> */}
       {/* <UseReducerToggle/> */}
       {/* <UseRedToggle/> */}
-      <UseEffectTuts/>
+      {/* <UseEffectTuts/> */}
+      <UseEffectFetch/>
     </>
   )
 }
