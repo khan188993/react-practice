@@ -137,3 +137,18 @@ const UseParamPage = () => {
          <h1>Search Param Running</h1>
      )
  }
+
+//!  private route send page 
+import { Navigator } from 'react-router-dom';
+<li><NavLink to="/dashboard">dashboard</NavLink></li>
+<li><NavLink to="/login">login</NavLink></li>
+<li><NavLink to="/logout">logout</NavLink></li>
+//route setup 
+<Route path='/dashboard' element={false ? <Dashboard/> : <Navigate to="/login" replace/>}></Route>
+<Route path="/login" element={<Login/>}></Route>
+<Route path="/logout" element={<Logout/>}></Route>
+
+//! useLocation with Navigate component 
+<Route path='/dashboard' element={true ? <Dashboard/> : <Navigate to="/login" replace state={'please log in first'}/>}></Route>
+//login.js 
+console.log(useLocation().state);

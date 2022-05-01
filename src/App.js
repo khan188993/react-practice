@@ -4,9 +4,12 @@ import React from 'react';
 // import './Index.css'
 import './App.css'
 import ClassBased from './ClassBased.module.css'
-import { Link, NavLink, Route,Routes } from 'react-router-dom';
+import { Link, Navigate, NavLink, Route,Routes } from 'react-router-dom';
 import UseParamPage from './pages/UseParamPage/UseParamPage';
 import SearchParam from './pages/SearchParam/SearchParam';
+import Dashboard from './pages/Dashboard/Dashboard';
+import Login from './pages/Login/Login';
+import Logout from './pages/Logout/Logout';
 
 const App = () => {
 
@@ -24,6 +27,11 @@ const App = () => {
       <h1>React Router V6 Practice code Running.</h1><hr />
       {/* Navigation Adding */}
       <ul>
+        {/* private route navigation */}
+        <li><NavLink to="/dashboard">dashboard</NavLink></li>
+        <li><NavLink to="/login">login</NavLink></li>
+        <li><NavLink to="/logout">logout</NavLink></li>
+
         {/* A Tag Will Refresh the page */}
         <li><a href="about">A - About</a></li>
         <li><NavLink className={activeCheck()} to='/'>Home</NavLink></li>
@@ -62,6 +70,11 @@ const App = () => {
 
           {/* Search Param Using */}
           <Route path="search" element={<SearchParam/>}></Route>
+
+          {/* Private Route Tricks with login,dashboard and logout, */}
+          <Route path='/dashboard' element={false ? <Dashboard/> : <Navigate to="/login" replace state={'please log in first'}/>}></Route>
+          <Route path="/login" element={<Login/>}></Route>
+          <Route path="/logout" element={<Logout/>}></Route>
       </Routes>
 
       {/* Css Adding Style  */}
