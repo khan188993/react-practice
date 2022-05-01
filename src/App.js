@@ -6,6 +6,7 @@ import './App.css'
 import ClassBased from './ClassBased.module.css'
 import { Link, NavLink, Route,Routes } from 'react-router-dom';
 import UseParamPage from './pages/UseParamPage/UseParamPage';
+import SearchParam from './pages/SearchParam/SearchParam';
 
 const App = () => {
 
@@ -27,6 +28,7 @@ const App = () => {
         <li><a href="about">A - About</a></li>
         <li><NavLink className={activeCheck()} to='/'>Home</NavLink></li>
         <li><NavLink to="/useParam">Use Params</NavLink></li>
+        <li><NavLink to="/search">Search Params</NavLink></li>
 
         {/* This will not Refresh the page */}
         <li><NavLink style={activeStyleBased()} to="/">Home</NavLink></li>
@@ -48,13 +50,18 @@ const App = () => {
 
           {/* useParam cat route ekta button diye handle krbo, */}
           <Route path="/useParam/:category" element={<UseParamPage/>}></Route>
+          <Route path="/useParam/:category/:id" element={<UseParamPage/>}></Route>
           <Route path="/blog" element="Hello Router Blog"></Route>
 
           {/* use params e jai pathabo sob blog component e jabe, */}
-          <Route path="/blog/:cat" element={<UseParamPage/>}></Route>
+          <Route path="/blog/:category" element={<UseParamPage/>}></Route>
           {/* this will run component */}
           <Route path="/basic-component" element={<BasicComponent/>}></Route>
           <Route path="/css-component" element={<CssAddingComponent/>}></Route>
+          <Route path='*' element="404 routes"></Route>
+
+          {/* Search Param Using */}
+          <Route path="search" element={<SearchParam/>}></Route>
       </Routes>
 
       {/* Css Adding Style  */}

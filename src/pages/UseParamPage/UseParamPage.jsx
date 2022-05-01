@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 
 const UseParamPage = () => {
     const {category} = useParams();
-    console.log(category);
+    console.log(useParams());
     // filter kore category way product show krbo,
 
     

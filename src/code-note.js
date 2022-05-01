@@ -11,6 +11,7 @@
 {/* this will run component */}
 <Route path="/basic-component" element={<BasicComponent/>}></Route>
 <Route path="/css-component" element={<CssAddingComponent/>}></Route>
+<Route path='*' element="404 routes"></Route>
 </Routes>
 
 
@@ -39,6 +40,7 @@ const activeCheck = ()=>{
 <li><NavLink className={activeCheck()} to="/blog">Blog</NavLink></li>
 <li><Link to="/basic-component">Basic Component</Link></li>
 <li><Link to="/css-component">CSS Component</Link></li>
+
 </ul>
 
 
@@ -91,3 +93,47 @@ const CssAddingComponent = ()=>{
   )
 }
 
+
+//! useParam using Process 
+
+//Route Setup 
+
+{/* jeta upor thakbe seta age asbe, */}
+<Route path="/useParam" element={<UseParamPage/>}></Route>
+
+{/* useParam cat route ekta button diye handle krbo, */}
+<Route path="/useParam/:category" element={<UseParamPage/>}></Route>
+
+//component setup 
+
+import { useParams } from 'react-router-dom'
+
+const UseParamPage = () => {
+    const {category} = useParams();
+    console.log(category);
+    // filter kore category way product show krbo,
+
+    
+    return (
+        <div>
+            UseParamPage pages {category}
+        </div>
+    )
+}
+
+// useSearch Param using Steps,
+/**
+ * j kno route e search krte parbo search thakle seta collect krte 
+ * useSearchParam k use krbo useState er moto and searchParam theke get() func diye value ber krbo,
+ * searchParam.get('code');
+ */
+//url www.search.com/search?code=234;
+ import { useSearchParams } from 'react-router-dom';
+
+ const SearchParam = ()=>{
+     const [searchParam,setSearchParam] = useSearchParams();
+     console.log(searchParam.get('code'));
+     return(
+         <h1>Search Param Running</h1>
+     )
+ }
